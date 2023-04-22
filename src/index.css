@@ -1,3 +1,16 @@
+@import url("https://use.typekit.net/whb0ska.css");
 @tailwind base;
+@layer base {
+  html {
+    @apply font-freight;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-brandon;
+    @apply font-semibold;
+  }
+  button {
+    @apply font-brandon;
+  }
+}
 @tailwind components;
 @tailwind utilities;
