@@ -1,1 +1,6 @@
 
+.shad-hint{
+box-shadow: 2px 0 4px 0px hsla(60, 9%, 70%, 25%),
+            -1.5px 0 2px 0px hsla(60, 9%, 80%, 15%);
+
+}
