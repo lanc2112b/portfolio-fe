@@ -1,6 +1,12 @@
+import { useEffect } from "react";
 import PortfolioCard from "../uiparts/PortfolioCard";
 
 const PortfolioSection = () => {
+
+    useEffect(() => {
+
+        document.title='Portfolio';
+    });
 
     return (
         <>
