@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Routes, Route } from 'react-router-dom';
 import './App.css'
 import MainNav from "./components/navs/MainNav";
 import Header from "./components/structure/Header";
 import PortfolioSection from './components/portfolio/PortfolioSection';
 import Footer from './components/structure/Footer';
 import MainSection from './components/structure/MainSection';
+import ContactForm from './components/contact/ContactForm';
 
 function App() {
 
@@ -19,9 +19,14 @@ function App() {
 
         <div className="center-wrapper w-full bg-gradient-to-tr from-stone-50 via-stone-100 to-zinc-300">
           <Header setSideBar={setSideBar} sideBar={sideBar} />
-
-            <MainSection component={<PortfolioSection />} />
-
+            <Routes>
+                
+            {/* <Route path="/" element={<MainSection element={<AdminLandingPage />} />} /> */}
+            <Route path="/contact" element={<MainSection component={<ContactForm />} />} />
+            <Route path="/portfolio" element={<MainSection component={<PortfolioSection />} />} />
+            
+            
+            </Routes>
           <Footer />
         </div>
       </div>
