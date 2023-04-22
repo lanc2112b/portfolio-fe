@@ -5,7 +5,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'freight': ['freight-sans-pro', 'sans-serif',],
+        'brandon': ['brandon-grotesque', 'sans-serif'],
+      },
+},
   },
   plugins: [],
 }
