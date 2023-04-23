@@ -1,10 +1,34 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
+import {useGoogleReCaptcha} from 'react-google-recaptcha-v3';
+import {postContactsForm} from "../../api/apiConsumer";
 
 const ContactForm = () => {
 
     useEffect(() => {
-        document.title = 'Contact Page';
+        document.title = 'Get In Touch';
     });
+
+    const [gToken, setGToken] = useState('');
+    
+    const { executeRecaptcha } = useGoogleReCaptcha();
+
+    const handleReCaptchaVerify = useCallback(async () => {
+        if (!executeRecaptcha) {
+            //console.log('Execute recaptcha not yet available');
+            return;
+        }
+
+        const token = await executeRecaptcha('contact_form');
+
+        setGToken(token);
+
+        //console.log(token);
+
+    }, [executeRecaptcha]);
+
+    useEffect(() => {
+        handleReCaptchaVerify();
+    }, [handleReCaptchaVerify]);
 
     const initial = {
         name: '',
@@ -12,14 +36,42 @@ const ContactForm = () => {
         subject: '',
         source: '',
         query: '',
+        clrchck: '',
+        token: '',
     };
 
     const [formObj, setFormObj] = useState({...initial});
-    const [formErrors, setFormErrors] = useState({...initial});
+    const [formErrors, setFormErrors] = useState({...initial, errors: null});
 
     const submitHandler = (event) => {
 
         event.preventDefault();
+        
+        const tmpObj = { ...formErrors };
+
+        tmpObj.errors = null;
+
+        if (Object.values(formErrors).join('')) {
+
+            tmpObj.errors = "Check form errors, highlighted in red."
+            setFormErrors(tmpObj);
+            return;
+
+        }
+
+        setFormErrors(tmpObj);
+
+        formObj.token = gToken;
+
+        postContactsForm(formObj)
+            .then((result) => {
+                //console.log(result);
+                handleReCaptchaVerify();
+                resetHandler();
+            })
+            .catch((error) => {
+                console.log(error);
+            });
 
     }
 
@@ -31,7 +83,6 @@ const ContactForm = () => {
 
         newObj[currentTrack] = currentVal;
         setFormObj(newObj);
-
         validateFormItem(currentTrack);
     }
 
@@ -58,7 +109,7 @@ const ContactForm = () => {
                     tmpObj.name = 'Name must have less than 255 characters';
                 }
 
-                if (/[^-a-zA-Z]/.test(formObj.name)) {
+                if (/[^-a-zA-Z\s]/.test(formObj.name)) {
                     tmpObj.name = 'Name can only contain letters';
                 } 
             }
@@ -194,6 +245,7 @@ const ContactForm = () => {
                             </textarea>
                             <span className="ms-0.5 text-sm">Character count: {formObj.query.length} (max 1500)</span>
                         </div>
+                        <input type="hidden" value={formObj.clrchck} onChange={changeHandler} name="clrchck" id="clrchck" className="" />
                         <div className="col-span-2 flex flex-row justify-end pe-2 me-3">
                             <button type="submit" className="me-4 py-1 px-3 font-semibold rounded-full" onClick={resetHandler}>
                                 Reset
