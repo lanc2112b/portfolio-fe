@@ -22,8 +22,8 @@ function App() {
         <div className="center-wrapper w-full bg-gradient-to-tr from-stone-50 via-stone-100 to-zinc-300 flex flex-col min-h-screen">
           <Header setSideBar={setSideBar} sideBar={sideBar} />
             <Routes>
-            <Route path="/" element={<MainSection element={<LandingPage />} />} />
             
+            <Route path="/" element={<MainSection component={<LandingPage />} />} />
             <Route path="/contact" element={<MainSection component={<ContactForm />} />} />
             <Route path="/portfolio" element={<MainSection component={<PortfolioSection />} />} />
             
