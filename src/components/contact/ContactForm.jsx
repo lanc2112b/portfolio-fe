@@ -200,7 +200,7 @@ const ContactForm = () => {
     return (
         <>
             <section className="container
-                                py-10 mx-auto min-h-screen
+                                py-10 mx-auto h-full
                                 px-6 shad-hint">
 
                 <p>Preamble and title here</p>
