@@ -1,12 +1,33 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import PortfolioCard from "../uiparts/PortfolioCard";
+import { getPortfolioList } from "../../api/apiConsumer";
 
 const PortfolioSection = () => {
 
     useEffect(() => {
 
         document.title='Portfolio';
-    });
+    },[]);
+
+
+    const [portfolioList, setPortfolioList] = useState([]);
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        setLoading(true);
+        getPortfolioList()
+            .then((results) => {
+                setPortfolioList(results);
+                setLoading(false);
+            })
+            .catch((error) => {
+                //TODO: Add error handling
+                console.log(error);
+            });
+    },[]);
+
+    if (loading)
+        return (<><p> Loading... </p></>);
 
     return (
         <>
@@ -15,12 +36,12 @@ const PortfolioSection = () => {
                                 py-10 mx-auto h-full
                                 px-3 shad-hint">
                 
-                <PortfolioCard />
-                <PortfolioCard />
-                <PortfolioCard />
-                <PortfolioCard />
-                <PortfolioCard />
-                <PortfolioCard />
+                
+                {portfolioList.map((listItem) => {
+                    return (<PortfolioCard key={listItem.id} listItem={listItem} />);
+                })}
+                
+                
                 
             </section>
         </>
