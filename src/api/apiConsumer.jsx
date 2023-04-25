@@ -16,3 +16,13 @@ export const postContactsForm = (formObj) => {
         });
 
 };
+
+export const getPortfolioList = () => {
+
+    return api.get(`/api/portfolios/index`)
+        .then((result) => {
+            //console.log(result)
+            return result.data;
+        });
+
+};
