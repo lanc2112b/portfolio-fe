@@ -5,6 +5,11 @@ import { getPortfolioItem } from "../../api/apiConsumer";
 
 const PortfolioItem = () => {
 
+    useEffect(() => {
+
+        document.title = 'Portfolio Item';
+    }, []);
+
     const { id } = useParams();
 
     const [item, setItem] = useState({});
