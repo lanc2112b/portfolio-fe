@@ -20,7 +20,7 @@ const PortfolioItem = () => {
         getPortfolioItem(id)
             .then((result) => {
                 setItem(result);
-                console.log(result);
+                //console.log(result);
                 setLoading(false);
             })
             .catch((error) => {
