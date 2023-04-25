@@ -3,11 +3,12 @@ import {Routes, Route } from 'react-router-dom';
 import './App.css'
 import MainNav from "./components/navs/MainNav";
 import Header from "./components/structure/Header";
-import PortfolioSection from './components/portfolio/PortfolioSection';
+import PortfolioList from './components/portfolio/PortfolioList';
 import Footer from './components/structure/Footer';
 import MainSection from './components/structure/MainSection';
 import ContactForm from './components/contact/ContactForm';
 import LandingPage from './components/landing/LandingPage';
+import PortfolioItem from './components/portfolio/PortfolioItem';
 
 
 function App() {
@@ -25,8 +26,8 @@ function App() {
             
             <Route path="/" element={<MainSection component={<LandingPage />} />} />
             <Route path="/contact" element={<MainSection component={<ContactForm />} />} />
-            <Route path="/portfolio" element={<MainSection component={<PortfolioSection />} />} />
-            
+            <Route path="/portfolio" element={<MainSection component={<PortfolioList />} />} />
+            <Route path="/portfolio/:id" element={<MainSection component={<PortfolioItem />} />} />
             
             </Routes>
           <Footer />

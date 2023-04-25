@@ -26,3 +26,13 @@ export const getPortfolioList = () => {
         });
 
 };
+
+export const getPortfolioItem = (id) => {
+
+    return api.get(`/api/portfolios/${id}/view`)
+        .then((result) => {
+            //console.log(result)
+            return result.data.item;
+        });
+
+};

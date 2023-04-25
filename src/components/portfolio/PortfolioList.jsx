@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import PortfolioCard from "../uiparts/PortfolioCard";
 import { getPortfolioList } from "../../api/apiConsumer";
 
-const PortfolioSection = () => {
+const PortfolioList = () => {
 
     useEffect(() => {
 
@@ -48,4 +48,4 @@ const PortfolioSection = () => {
     );
 }
 
-export default PortfolioSection;
+export default PortfolioList;
