@@ -1,4 +1,6 @@
-const Header = ({sideBar,setSideBar}) => {
+import { Toaster } from 'react-hot-toast';
+
+const Header = ({ sideBar, setSideBar }) => {
 
     const navHandler = () => {
 
@@ -17,6 +19,17 @@ const Header = ({sideBar,setSideBar}) => {
                     <i className="fa-solid fa-toggle-off"></i>
                 </div>
             </header>
+            <Toaster
+                position="top-right"
+                reverseOrder={false}
+                gutter={8}
+                containerClassName=""
+                containerStyle={{}}
+                toastOptions={{
+                    // Define default options
+                    duration: 8000,
+                }}
+            />
         </>
     );
 }
