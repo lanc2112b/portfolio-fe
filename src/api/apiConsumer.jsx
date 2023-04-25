@@ -12,7 +12,7 @@ export const postContactsForm = (formObj) => {
     return api.post(`/api/contacts/add`, formObj)
         .then((result) => {
             //console.log(result)
-            return result.data.item;
+            return result;
         });
 
 };
