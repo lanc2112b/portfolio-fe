@@ -7,21 +7,21 @@ const Bread = ({ msgObj, t }) => {
 
     const styles = {};
     if (msgObj.type === 'success') {
-        styles.toastStyle = 'shadow-green-900  bg-green-200';
+        styles.toastStyle = 'shadow-green-700  bg-green-50';
         styles.hrStyle = 'border-green-400';
-        styles.buttonStyle = 'bg-green-300 text-green-800 hover:text-green-100 hover:bg-green-700';
+        styles.buttonStyle = 'bg-green-200 text-green-800 hover:text-green-50 hover:bg-green-700';
     } else if (msgObj.type === 'error') {
-        styles.toastStyle = 'shadow-red-900  bg-red-200';
+        styles.toastStyle = 'shadow-red-700  bg-red-50';
         styles.hrStyle = 'border-red-400';
-        styles.buttonStyle = 'bg-red-300 text-red-800 hover:text-red-100 hover:bg-red-700';
+        styles.buttonStyle = 'bg-red-200 text-red-800 hover:text-red-50 hover:bg-red-600';
     } else if (msgObj.type === 'warning'){
-        styles.toastStyle = 'shadow-orange-900  bg-orange-200';
+        styles.toastStyle = 'shadow-orange-800  bg-orange-100';
         styles.hrStyle = 'border-orange-400';
-        styles.buttonStyle = 'bg-orange-300 text-orange-800 hover:text-orange-100 hover:bg-orange-700';
+        styles.buttonStyle = 'bg-orange-200 text-orange-800 hover:text-orange-50 hover:bg-orange-600';
     } else {
-        styles.toastStyle = 'shadow-cyan-900  bg-cyan-200';
+        styles.toastStyle = 'shadow-cyan-700  bg-cyan-100';
         styles.hrStyle = 'border-cyan-400';
-        styles.buttonStyle = 'bg-cyan-300 text-cyan-800 hover:text-cyan-100 hover:bg-cyan-700';
+        styles.buttonStyle = 'bg-cyan-300 text-cyan-800 hover:text-cyan-50 hover:bg-cyan-700';
     }
 
     return (
