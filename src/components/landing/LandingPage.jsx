@@ -38,11 +38,11 @@ const LandingPage = () => {
                     <div className="m-0 p-0 w-full h-full shape_bg">
                         <div className="grid gap-6 grid-cols-1 md:grid-cols-2 w-full h-full bg-gray-50 bg-opacity-10 py-12 px-6">
                             <div className="col-span-1 md:col-span-1 flex flex-col justify-center items-center md:justify-between md:items-start  p-8 order-2 md:order-2">
-                                <h2 className="text-[12vw] md:text-[9.65vw] leading-[10vh] xl:leading-[10vw] my-4 font-medium text-three">Full Stack</h2>
-                                <h2 className="text-[10vw] md:text-[9.65vw] leading-[11vh] xl:leading-[10vw] my-4 font-medium text-four">Web Developer</h2>
+                                <h2 className="text-[12vw] md:text-[9.65vw] 3xl:text-[9vw] leading-[10vh] xl:leading-[10vw] 3xl:leading-[8.5vw] my-1 font-medium">Full Stack</h2>
+                                <h2 className="text-[10vw] md:text-[9.65vw] 3xl:text-[9vw] leading-[11vh] xl:leading-[10vw] 3xl:leading-[8.5vw] mb-2 font-medium">Web Developer</h2>
                             </div>
                             <div className="col-span-1 md:col-span-1 flex flex-col justify-start items-center p-2 md:p-8 md:ps-20 order-1 md:order-2">
-                                <img src={landingContent[0]?.area_content_image} alt="me as svg" className="w-40 h-40 place-self-center" />
+                                <img src={landingContent[0]?.area_content_image} alt="me as svg" className="w-40 h-40 place-self-center md:mt-2 lg:mt-0 xl:mt-5" />
                                 <h2 className="text-4xl my-4 font-medium">{landingContent[0]?.area_content_title}</h2>
                                 <p>{landingContent[0]?.area_content}</p>
                             </div>
@@ -65,8 +65,10 @@ const LandingPage = () => {
                     <span className="ml-1 hidden sm:inline md:hidden font-extrabold">sm</span>
                     <span className="ml-1 hidden md:inline lg:hidden font-extrabold">md</span>
                     <span className="ml-1 hidden lg:inline xl:hidden font-extrabold">lg</span>
-                    <span className="ml-1 hidden xl:inline font-extrabold">xl</span> 
-                </div>*/}
+                    <span className="ml-1 hidden xl:inline 2xl:hidden font-extrabold">xl</span>
+                    <span className="ml-1 hidden 2xl:inline 3xl:hidden font-extrabold">2xl</span>
+                    <span className="ml-1 hidden 3xl:inline font-extrabold">3xl</span>
+                </div> */}
             </section>
 
         </>
