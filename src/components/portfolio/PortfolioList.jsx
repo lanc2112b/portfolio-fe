@@ -6,7 +6,7 @@ const PortfolioList = () => {
 
     useEffect(() => {
 
-        document.title='Portfolio';
+        document.title='Projects';
     },[]);
 
 

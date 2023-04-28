@@ -4,13 +4,15 @@ import { DateTime } from 'luxon';
 import { getPortfolioItem } from "../../api/apiConsumer";
 
 const PortfolioItem = () => {
-
+    
+    const { id } = useParams();
+    
     useEffect(() => {
 
-        document.title = 'Portfolio Item';
-    }, []);
+        document.title = `Project ${id}`;
+    }, [id]);
 
-    const { id } = useParams();
+    
 
     const [item, setItem] = useState({});
     const [loading, setLoading] = useState(false);
