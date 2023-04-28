@@ -153,7 +153,10 @@ const ContactForm = () => {
                     setFormErrors((currErrs) => { return { ...currErrs, email: 'Email must have less than 255 characters' } });
                 }
 
-                // TODO: add valid email... 
+                // Looks like an email address. huhuh. 
+                if (!/(.*)\@(.*)\.(.*)/i.test(value) || value.length > 255) {
+                    setFormErrors((currErrs) => { return { ...currErrs, email: 'Valid email address required' } });
+                }
             }
         }
 
