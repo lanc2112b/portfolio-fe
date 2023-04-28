@@ -25,10 +25,14 @@ const MainNav = ({ sideBar }) => {
                         </Link>
                     </li>
                     <li className="h-16 border-b border-stone-200 flex justify-center items-center text-3xl">
-                        <i className="fa-brands fa-github"></i>
+                        <Link to="https://github.com/lanc2112b" target="_blank">
+                            <i className="fa-brands fa-github"></i>
+                        </Link>
                     </li>
                     <li className="h-16 border-b border-stone-200 flex justify-center items-center text-3xl">
-                        <i className="fa-brands fa-linkedin"></i>
+                        <Link to="https://www.linkedin.com/in/tony-lancaster-3a055a150" target="_blank">
+                            <i className="fa-brands fa-linkedin"></i>
+                        </Link>
                     </li>
                 </ul>
             </nav>
