@@ -145,8 +145,8 @@ const ContactForm = () => {
 
             } else {
 
-                if (value.length > 0 && value.length < 3) {
-                    setFormErrors((currErrs) => { return { ...currErrs, email: 'Email must have more than 3 characters' } });
+                if (value.length > 0 && value.length < 5) {
+                    setFormErrors((currErrs) => { return { ...currErrs, email: 'Email must have more than 5 characters' } });
                 }
 
                 if (value.length > 255) {
