@@ -229,8 +229,12 @@ const ContactForm = () => {
                                 py-10 mx-auto h-full
                                 px-6 shad-hint">
 
-                <p>Preamble and title here</p>
-
+                
+                <div className="mb-7">
+                    <h2 className="font-medium text-2xl">Find out more? </h2>
+                    <p>Want to find more, have a suggestion, or just want to drop by and say hi? Use the contact form below or get in touch with LinkedIn or via GitHub.</p>
+                </div>
+                <hr className="mb-7"/>
                 <form onSubmit={submitHandler}>
                     <div className="grid gap-4 grid-cols-2">
                         <div className="col-span-2 sm:col-span-1 flex flex-col">
