@@ -85,7 +85,7 @@ const PortfolioItem = () => {
                         
                     </div>
                     <div className="col-span-1 sm:col-span-2 mt-3">
-                        <p>{item.description}</p>
+                        <p className="whitespace-pre-wrap">{item.description}</p>
                     </div>
                 </div>
             </section>
