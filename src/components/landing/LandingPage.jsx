@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"; //, 
 import { getContentItems } from "../../api/apiConsumer";
+import { Link } from "react-router-dom";
 //import me from "../../assets/me.svg";
 
 
@@ -37,14 +38,26 @@ const LandingPage = () => {
                 <div className={`m-0 p-0 w-full h-full hero_ltwo`}>
                     <div className="m-0 p-0 w-full h-full shape_bg">
                         <div className="grid gap-6 grid-cols-1 md:grid-cols-2 w-full h-full bg-gray-50 bg-opacity-10 py-12 px-6">
-                            <div className="col-span-1 md:col-span-1 flex flex-col justify-center items-center md:justify-between md:items-start  p-8 order-2 md:order-2">
+                            <div className="col-span-1 hidden md:flex md:col-span-1 flex-col justify-center items-center 2xl:justify-between md:items-start  p-8 order-2 md:order-2">
                                 <h2 className="text-[12vw] md:text-[9.65vw] 3xl:text-[9vw] leading-[10vh] xl:leading-[10vw] 3xl:leading-[8.5vw] my-1 font-medium">Full Stack</h2>
                                 <h2 className="text-[10vw] md:text-[9.65vw] 3xl:text-[9vw] leading-[11vh] xl:leading-[10vw] 3xl:leading-[8.5vw] mb-2 font-medium">Web Developer</h2>
                             </div>
                             <div className="col-span-1 md:col-span-1 flex flex-col justify-start items-center p-2 md:p-8 md:ps-20 order-1 md:order-2">
                                 <img src={landingContent[0]?.area_content_image} alt="me as svg" className="w-40 h-40 place-self-center md:mt-2 lg:mt-0 xl:mt-5" />
-                                <h2 className="text-4xl my-4 font-medium">{landingContent[0]?.area_content_title}</h2>
-                                <p>{landingContent[0]?.area_content}</p>
+                                <h2 className="text-4xl my-2 font-medium">{landingContent[0]?.area_content_title}</h2>
+                                <div className="flex flex-row text-xl mb-2">
+                                    <Link to="https://www.linkedin.com/in/tony-lancaster-3a055a150" target="_blank" className="me-3" title="LinkedIn" >
+                                        <i className="fa-brands fa-linkedin"></i>
+                                    </Link>
+                                    <Link to="https://github.com/lanc2112b" target="_blank" className="me-3" title="GitHub.com" >
+                                        <i className="fa-brands fa-github"></i>
+                                    </Link>
+                                    <Link to="/contact" className="me-3" title="Contact form" >
+                                        <i class="fa-solid fa-message"></i>
+                                    </Link>
+                                </div>
+                                <p className="whitespace-pre-wrap">{landingContent[0]?.area_content}</p>
+                                
                             </div>
                         </div>
                     </div>
