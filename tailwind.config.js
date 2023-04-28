@@ -10,6 +10,9 @@ export default {
         'freight': ['freight-sans-pro', 'sans-serif',],
         'brandon': ['brandon-grotesque', 'sans-serif'],
       },
+      screens: {
+        '3xl': '2100px',
+      },
 },
   },
   plugins: [
