@@ -26,8 +26,8 @@ function App() {
             
             <Route path="/" element={<MainSection component={<LandingPage />} />} />
             <Route path="/contact" element={<MainSection component={<ContactForm />} />} />
-            <Route path="/portfolio" element={<MainSection component={<PortfolioList />} />} />
-            <Route path="/portfolio/:id" element={<MainSection component={<PortfolioItem />} />} />
+            <Route path="/projects" element={<MainSection component={<PortfolioList />} />} />
+            <Route path="/projects/:id" element={<MainSection component={<PortfolioItem />} />} />
             
             </Routes>
           <Footer />

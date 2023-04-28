@@ -6,7 +6,7 @@ const PortfolioCard = ({ listItem }) => {
     const navigate = useNavigate();
 
     const clickHandler = () => {
-        navigate(`/portfolio/${listItem.id}`);
+        navigate(`/projects/${listItem.id}`);
     }
     return (
         <>

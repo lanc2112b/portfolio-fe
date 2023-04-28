@@ -15,7 +15,7 @@ const MainNav = ({ sideBar }) => {
                         </Link>
                     </li>
                     <li className="h-16 border-b border-stone-200 flex justify-center items-center text-3xl">
-                        <Link to="/portfolio">
+                        <Link to="/projects">
                             <i className="fa-solid fa-briefcase"></i>
                         </Link>
                     </li>
