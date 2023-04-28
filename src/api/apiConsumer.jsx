@@ -36,3 +36,13 @@ export const getPortfolioItem = (id) => {
         });
 
 };
+
+export const getContentItems = () => {
+
+    return api.get(`/api/landings/index`)
+        .then((result) => {
+            //console.log(result)
+            return result.data;
+        });
+
+};
