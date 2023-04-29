@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 
 function randomCharLength() {
     
@@ -28,7 +29,8 @@ const PortfolioCard = ({ listItem }) => {
                 </div>
                 <div className="p-1 bg-opacity-20 bg-stone-50">
                     <p>
-                        {`${listItem.description.slice(0, randomCharLength())}...`}
+
+                        <ReactMarkdown children={`${listItem.description.slice(0, randomCharLength())}...`} />
                     </p>
                 </div>
                 <hr className="border-stone-300 my-3" />
