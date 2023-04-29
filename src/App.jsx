@@ -9,6 +9,7 @@ import MainSection from './components/structure/MainSection';
 import ContactForm from './components/contact/ContactForm';
 import LandingPage from './components/landing/LandingPage';
 import PortfolioItem from './components/portfolio/PortfolioItem';
+import FourOhFour from './components/error/FourOhFour';
 
 
 function App() {
@@ -28,7 +29,7 @@ function App() {
             <Route path="/contact" element={<MainSection component={<ContactForm />} />} />
             <Route path="/projects" element={<MainSection component={<PortfolioList />} />} />
             <Route path="/projects/:id" element={<MainSection component={<PortfolioItem />} />} />
-            
+            <Route path="*" element={<MainSection component={<FourOhFour />} />} />
             </Routes>
           <Footer />
         </div>
