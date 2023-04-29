@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import ReactMarkdown from "react-markdown";
 import { DateTime } from 'luxon';
 import { getPortfolioItem } from "../../api/apiConsumer";
 
@@ -85,7 +86,9 @@ const PortfolioItem = () => {
                         
                     </div>
                     <div className="col-span-1 sm:col-span-2 mt-3">
-                        <p className="whitespace-pre-wrap">{item.description}</p>
+
+                        <ReactMarkdown children={item.description} /> 
+
                     </div>
                 </div>
             </section>
