@@ -1,6 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
+function randomCharLength() {
+    
+    let range = { min: 500, max: 750 }
+    let delta = range.max - range.min
+
+    return Math.round(range.min + Math.random() * delta)
+}
+
 const PortfolioCard = ({ listItem }) => {
 
     const navigate = useNavigate();
@@ -20,7 +28,7 @@ const PortfolioCard = ({ listItem }) => {
                 </div>
                 <div className="p-1 bg-opacity-20 bg-stone-50">
                     <p>
-                        {listItem.description}
+                        {`${listItem.description.slice(0, randomCharLength())}...`}
                     </p>
                 </div>
                 <hr className="border-stone-300 my-3" />
