@@ -1,10 +1,12 @@
+process.env.NODE_ENV = "local";
+
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 import * as dotenv from 'dotenv';
-dotenv.config();
+dotenv.config({ path: `${__dirname}/.env.local` });
 
 import ssh2SftpClient from 'ssh2-sftp-client';
 //let SftpClient = require('ssh2-sftp-client');
