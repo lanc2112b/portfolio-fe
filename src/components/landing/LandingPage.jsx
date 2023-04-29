@@ -53,7 +53,7 @@ const LandingPage = () => {
                                         <i className="fa-brands fa-github"></i>
                                     </Link>
                                     <Link to="/contact" className="me-3" title="Contact form" >
-                                        <i class="fa-solid fa-message"></i>
+                                        <i className="fa-solid fa-message"></i>
                                     </Link>
                                 </div>
                                 <p className="whitespace-pre-wrap">{landingContent[0]?.area_content}</p>
