@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from 'remark-gfm';
 import { DateTime } from 'luxon';
 import { getPortfolioItem } from "../../api/apiConsumer";
 
@@ -88,7 +89,7 @@ const PortfolioItem = () => {
                     <hr className="border-t border-stone-300 my-4 col-span-1 sm:col-span-2" />
                     <div className="mt-3 col-span-1 sm:col-span-2 mx-2 prose max-w-none sm:prose-lg md:prose-xl columns-1 lg:columns-2 lg:gap-16">
                         
-                        <ReactMarkdown children={item.description} /> 
+                        <ReactMarkdown children={item.description} remarkPlugins={[remarkGfm]} /> 
 
                     </div>
                 </div>
