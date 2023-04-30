@@ -85,8 +85,9 @@ const PortfolioItem = () => {
                         </dl>
                         
                     </div>
-                    <div className="col-span-1 sm:col-span-2 mt-3 mx-2 prose max-w-none sm:prose-lg md:prose-xl columns-1 lg:columns-2 lg:gap-16">
-
+                    <hr className="border-t border-stone-300 my-4 col-span-1 sm:col-span-2" />
+                    <div className="mt-3 col-span-1 sm:col-span-2 mx-2 prose max-w-none sm:prose-lg md:prose-xl columns-1 lg:columns-2 lg:gap-16">
+                        
                         <ReactMarkdown children={item.description} /> 
 
                     </div>
