@@ -1,0 +1,45 @@
+name: Build and Deploy
+run-name: ${{ gitea.actor }} Running build and deploy
+on: [push]
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - run: echo "The ${{ gitea.repository }} repository has been cloned to the runner."
+      - name: Create env file production
+        run: |
+          touch .env.production
+          echo "VITE_BASE_API_URL=$VITE_BASE_API_URL" >> .env.production
+          echo "VITE_RECAPTCHA_KEY=$VITE_RECAPTCHA_KEY" >> .env.production
+          cat .env.production
+        env:
+          VITE_BASE_API_URL: ${{ secrets.VITE_BASE_API_URL }}
+          VITE_RECAPTCHA_KEY: ${{ secrets.VITE_RECAPTCHA_KEY }}     
+      - name: Create env file development
+        run: |
+          touch .env.development
+          echo "SFTP_SERVER=$SFTP_SERVER" >> .env.development
+          echo "SFTP_USER=$SFTP_USER" >> .env.development
+          echo "SFTP_PASSWORD=$SFTP_PASSWORD" >> .env.development
+          echo "SFTP_PORT=$SFTP_PORT" >> .env.development
+          echo "SFTP_URL=$SFTP_URL" >> .env.development
+          echo "LOCAL_PATH=$LOCAL_PATH" >> .env.development
+        env:
+          SFTP_SERVER: ${{ secrets.SFTP_SERVER }}
+          SFTP_USER: ${{ secrets.SFTP_USER }}
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+          SFTP_PORT: ${{ secrets.SFTP_PORT }}
+          SFTP_URL: ${{ secrets.SFTP_URL }}
+          LOCAL_PATH: ${{ secrets.LOCAL_PATH }}
+      - name: Install dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: View build folder
+        run: |
+          ls -a ${{ gitea.workspace }}/dist
+      - name: Deploy
+        run: npm run deploy
+      - run: echo "This job's status is ${{ gitea.status }}."
