@@ -232,7 +232,7 @@ const ContactForm = () => {
                 
                 <div className="mb-7">
                     <h2 className="font-medium text-2xl">Find out more? </h2>
-                    <p>Want to find more, have a suggestion, or just want to drop by and say hi? Use the contact form below or get in touch with LinkedIn or via GitHub.</p>
+                    <p>Want to find more, have a suggestion, or just want to drop by and say hi? Use the contact form below or get in touch with LinkedIn.</p>
                 </div>
                 <hr className="mb-7"/>
                 <form onSubmit={submitHandler}>
