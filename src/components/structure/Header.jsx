@@ -13,9 +13,11 @@ const Header = ({ sideBar, setSideBar }) => {
 
     const toggleTheme = () => {
 
-        setTheme(prev => { return !prev });
+        setTheme(!theme);
 
     }
+
+    console.log(theme);
 
     return (
         <>
@@ -24,22 +26,7 @@ const Header = ({ sideBar, setSideBar }) => {
                     <button type="button" onClick={navHandler}><i className="fa-solid fa-bars me-3"></i></button>
                     Show / Hide Nav
                 </div>
-
-                <div>
-                    Light / Dark
-                    {theme ?
-                        <button type="button" onClick={toggleTheme}>
-                        <i className="fa-regular fa-lightbulb ms-3 "></i>
-                    </button>
-                    :
-                        <button type="button" onClick={toggleTheme}>
-                        <i className="fa-solid fa-lightbulb ms-3 "></i>
-                    </button>
-                    }    
-                </div>    
-                    {/* <i className="fa-solid fa-toggle-on"></i>
-                    <i className="fa-solid fa-toggle-off"></i> */}
-  
+                {/* <ToggleLightDarkButton theme={theme} toggleTheme={toggleTheme} /> */}
             </header>
             <Toaster
                 position="top-right"
@@ -55,5 +42,43 @@ const Header = ({ sideBar, setSideBar }) => {
         </>
     );
 }
-
 export default Header;
+
+const ToggleLightDarkButton = ({ theme, toggleTheme }) => {
+
+    return (
+        <>
+            <div>
+                Light / Dark
+                <LightButton theme={theme} toggleTheme={toggleTheme} />
+                <DarkButton theme={theme} toggleTheme={toggleTheme} />
+            </div>  
+        </>
+    )
+}
+
+const DarkButton = ({ theme, toggleTheme }) => { 
+
+    if (theme) return null;
+
+    return (
+        <>
+            <button type="button" onClick={toggleTheme}>
+                <i className="fa-regular fa-lightbulb ms-3 "></i>
+            </button>
+        </>
+    )
+}
+
+const LightButton = ({ theme, toggleTheme }) => {
+    
+    if (!theme) return null;
+
+    return (
+        <>
+            <button type="button" onClick={toggleTheme}>
+                <i className="fa-solid fa-lightbulb ms-3 "></i>
+            </button>
+        </>
+    )
+}
