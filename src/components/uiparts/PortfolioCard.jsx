@@ -18,6 +18,16 @@ const PortfolioCard = ({ listItem }) => {
     const clickHandler = () => {
         navigate(`/projects/${listItem.id}`);
     }
+
+    const truncatedContent = () => {
+
+        const randomNumber = randomCharLength();
+
+        const index = listItem.description.length > randomNumber ? listItem.description.indexOf(" ", randomNumber): randomNumber;
+
+        return listItem.description.slice(0, index);
+    }
+
     return (
         <>
             <div className="break-inside-avoid-column mb-6 col-span-1 h-fit m-0 p-6 duration-300 shadow-sm rounded-md hover:bg-stone-50
@@ -29,10 +39,7 @@ const PortfolioCard = ({ listItem }) => {
                     <img className="w-full" src={listItem.image_url} alt="something" />
                 </div>
                 <div className="p-1 bg-opacity-20 bg-stone-50">
-                    <p>
-
-                        <ReactMarkdown children={`${listItem.description.slice(0, randomCharLength())}...`} remarkPlugins={[remarkGfm]} />
-                    </p>
+                        <ReactMarkdown children={`${truncatedContent()} ...`} remarkPlugins={[remarkGfm]} />
                 </div>
                 <hr className="border-stone-300 my-3" />
                 <div className="flex justify-end w-full">
